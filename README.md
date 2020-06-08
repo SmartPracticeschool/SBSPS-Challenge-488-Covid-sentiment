@@ -1,4 +1,14 @@
 # Covid-sentiments
-test
-comit from anujna pc
-commit from aditya pc
+
+## Creating Twitter developer account
+
+- Creating developer account
+- Create app
+- Generate twitter api keys and tokens
+
+## Generating Tweets
+```python
+llnlndsjnckjdsnkjnndskjcdsvb
+bsdvbhsdbvsdbv
+bkjbdk
+```
