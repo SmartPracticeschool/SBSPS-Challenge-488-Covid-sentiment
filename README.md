@@ -8,7 +8,5 @@
 
 ## Generating Tweets
 ```python
-llnlndsjnckjdsnkjnndskjcdsvb
-bsdvbhsdbvsdbv
-bkjbdk
+
 ```
