@@ -12,8 +12,6 @@ import plotly.offline as py
 import plotly.graph_objs as go
 from plotly.subplots import make_subplots
 
-py.init_notebook_mode()
-
 import re
 import nltk
 from nltk.probability import FreqDist
@@ -21,7 +19,7 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 
 # Changes to the state names Indian States
-STATES = ['Delhi', 'Karnataka', 'Maharashtra', 'Gujrat', 'Tamilnadu', 'Assam', 'Bihar', 'MAdhya Pradesh',
+STATES = ['Delhi', 'Karnataka', 'Maharashtra', 'Gujrat', 'Tamilnadu', 'Assam', 'Bihar', 'Madhya Pradesh',
           'Uttar Pradesh']
 STATE_DICT = dict(itertools.zip_longest(*[iter(STATES)] * 2, fillvalue=""))
 INV_STATE_DICT = dict((v, k) for k, v in STATE_DICT.items())

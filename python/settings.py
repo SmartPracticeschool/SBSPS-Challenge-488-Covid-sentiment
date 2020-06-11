@@ -1,4 +1,5 @@
-TRACK_WORDS = ['covid']
+TRACK_WORDS = ['covid19', 'coronavirus',
+               'pandemic', 'lockdown', 'qurantine', 'WHO', 'vaccine']
 TABLE_NAME = "covid"
 TABLE_ATTRIBUTES = "id_str VARCHAR(255), created_at DATETIME, text VARCHAR(255), \
             polarity INT, subjectivity INT, user_created_at VARCHAR(255), user_location VARCHAR(255), \
