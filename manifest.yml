@@ -1,0 +1,4 @@
+applications:
+- name: CovidSentiments
+  random-route: true
+  memory: 128M
