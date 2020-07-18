@@ -3,3 +3,4 @@
 .vscode
 python/cred.py
 cred.py
+*.pyc
