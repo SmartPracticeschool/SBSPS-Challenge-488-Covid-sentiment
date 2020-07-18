@@ -1,0 +1,1 @@
+mycursor.close()

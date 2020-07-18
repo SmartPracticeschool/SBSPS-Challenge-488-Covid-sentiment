@@ -18,7 +18,7 @@ class MyStreamListener(tweepy.StreamListener):
         # Extract attributes from each tweet
         id_str = status.id_str
         created_at = status.created_at
-        # created_at = now
+        created_at = now
         text = deEmojify(status.text)    # Pre-processing the text
         sentiment = TextBlob(text).sentiment
         polarity = sentiment.polarity

@@ -22,13 +22,32 @@ from IPython.display import clear_output
 import plotly.offline as py
 import plotly.graph_objs as go
 from plotly.subplots import make_subplots
+# from datetime import datetime
+
+# now = datetime.now()
 
 
 # nltk.download('punkt')
 # nltk.download('stopwords')
 
 # Filter constants for states in US
-STATES = ['Alabama', 'AL', 'Alaska', 'AK', 'American Samoa', 'AS', 'Arizona', 'AZ', 'Arkansas',
+# STATES = ['Alabama', 'AL', 'Alaska', 'AK', 'American Samoa', 'AS', 'Arizona', 'AZ', 'Arkansas',
+#           'AR', 'California', 'CA', 'Colorado', 'CO', 'Connecticut', 'CT', 'Delaware', 'DE',
+#           'District of Columbia', 'DC', 'Federated States of Micronesia', 'FM', 'Florida', 'FL', 'Georgia', 'GA', 'Guam', 'GU', 'Hawaii', 'HI', 'Idaho', 'ID', 'Illinois', 'IL', 'Indiana', 'IN', 'Iowa', 'IA', 'Kansas', 'KS', 'Kentucky', 'KY', 'Louisiana', 'LA', 'Maine', 'ME', 'Marshall Islands', 'MH', 'Maryland', 'MD', 'Massachusetts', 'MA', 'Michigan', 'MI', 'Minnesota', 'MN', 'Mississippi', 'MS', 'Missouri',
+#           'MO', 'Montana', 'MT', 'Nebraska', 'NE', 'Nevada', 'NV', 'New Hampshire',
+#           'NH', 'New Jersey', 'NJ', 'New Mexico', 'NM', 'New York', 'NY', 'North Carolina',
+#           'NC', 'North Dakota', 'ND', 'Northern Mariana Islands', 'MP', 'Ohio', 'OH',
+#           'Oklahoma', 'OK', 'Oregon', 'OR', 'Palau', 'PW', 'Pennsylvania', 'PA', 'Puerto Rico', 'PR', 'Rhode Island',
+#           'RI', 'South Carolina', 'SC', 'South Dakota', 'SD', 'Tennessee', 'TN',
+#           'Texas', 'TX', 'Utah', 'UT', 'Vermont', 'VT', 'Virgin Islands', 'VI',
+#           'Virginia', 'VA', 'Washington', 'WA', 'West Virginia', 'WV', 'Wisconsin',
+#           'WI', 'Wyoming', 'WY', 'India', 'Delhi', 'New Delhi', 'Bangalore',
+#           'Delhi', 'Karnataka', 'Maharashtra', 'Gujrat', 'Tamilnadu', 'Assam', 'Bihar', 'Madhya Pradesh',
+#           'Uttar Pradesh']
+
+STATES = ['India', 'USA', 'US', 'China',
+          'Germany', 'UK', 'Italy', 'Korea', 'America', 'India', 'Pakistan', 'China', 'Bangladesh',
+          'Alabama', 'AL', 'Alaska', 'AK', 'American Samoa', 'AS', 'Arizona', 'AZ', 'Arkansas',
           'AR', 'California', 'CA', 'Colorado', 'CO', 'Connecticut', 'CT', 'Delaware', 'DE',
           'District of Columbia', 'DC', 'Federated States of Micronesia', 'FM', 'Florida', 'FL', 'Georgia', 'GA', 'Guam', 'GU', 'Hawaii', 'HI', 'Idaho', 'ID', 'Illinois', 'IL', 'Indiana', 'IN', 'Iowa', 'IA', 'Kansas', 'KS', 'Kentucky', 'KY', 'Louisiana', 'LA', 'Maine', 'ME', 'Marshall Islands', 'MH', 'Maryland', 'MD', 'Massachusetts', 'MA', 'Michigan', 'MI', 'Minnesota', 'MN', 'Mississippi', 'MS', 'Missouri',
           'MO', 'Montana', 'MT', 'Nebraska', 'NE', 'Nevada', 'NV', 'New Hampshire',
@@ -41,7 +60,6 @@ STATES = ['Alabama', 'AL', 'Alaska', 'AK', 'American Samoa', 'AS', 'Arizona', 'A
           'WI', 'Wyoming', 'WY', 'India', 'Delhi', 'New Delhi', 'Bangalore',
           'Delhi', 'Karnataka', 'Maharashtra', 'Gujrat', 'Tamilnadu', 'Assam', 'Bihar', 'Madhya Pradesh',
           'Uttar Pradesh']
-
 
 STATE_DICT = dict(itertools.zip_longest(*[iter(STATES)] * 2, fillvalue=""))
 INV_STATE_DICT = dict((v, k) for k, v in STATE_DICT.items())
@@ -158,14 +176,15 @@ while True:
     fig.add_trace(go.Choropleth(
         locations=geo_dist['State'],  # Spatial coordinates
         z=geo_dist['Log Num'].astype(float),  # Data to be color-coded
-        locationmode='USA-states',  # set of locations match entries in `locations`
+        # set of locations match entries in `locations`
+        locationmode='country names',
         colorscale="Blues",
         text=geo_dist['text'],  # hover text
         showscale=False,
         geo='geo'
     ),
         row=1, col=2)
-
+# ['ISO-3', 'USA-states', 'country names', 'geojson-id']
     fig.update_layout(
         title_text="Real-time tracking '{}' mentions on Twitter {} UTC".format(
             settings.TRACK_WORDS[0], datetime.datetime.utcnow().strftime('%m-%d %H:%M')),
