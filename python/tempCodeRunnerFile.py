@@ -1,1 +1,0 @@
-mycursor.close()
